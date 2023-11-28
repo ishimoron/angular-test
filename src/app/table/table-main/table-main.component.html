@@ -1,0 +1,28 @@
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th *ngFor="let key of getObjectKeys(dataSource[0])">
+					{{key}}
+				</th>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of dataSource">
+				<td *ngFor="let key of getObjectKeys(item)">
+					<ng-container *ngIf="!editMode; else editModeTemplate">
+						{{ item[key] }}
+					</ng-container>
+					<ng-template #editModeTemplate>
+						<input [(ngModel)]="item[key]" />
+						<select [(ngModel)]="item[key]">
+							<option>{{key}}</option>
+						</select>
+					</ng-template>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<button (click)="toggleEditMode()">Toggle Edit Mode</button>
+</div>
+
+<app-table-view [dataSource]='mappedData'></app-table-view>

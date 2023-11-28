@@ -1,20 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PetsMainComponent } from './pets/pets-main/pets-main.component';
-import { PetsModule } from './pets/pets.module';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'pets', component: PetsMainComponent },
-];
-
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), PetsModule],
-  exports: [RouterModule],
+  imports: [BrowserModule, CommonModule, AppRoutingModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,6 @@
+<div class="table">
+	<!-- <app-table-header></app-table-header> -->
+	<ng-container *ngFor='let item of dataSource.rows'>
+		<app-table-row [rowItem]='item'></app-table-row>
+	</ng-container>
+</div>

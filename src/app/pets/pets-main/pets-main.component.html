@@ -1,2 +1,1 @@
-<app-pets-view *ngFor="let petsItem of petsList" [pets]="petsItem">
-</app-pets-view>
+<app-pets-view [pets]="petsList$ | async"></app-pets-view>

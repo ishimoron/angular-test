@@ -1,14 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PetsInterface } from '../pets-interface';
 
 @Component({
   selector: 'app-pets-view',
   templateUrl: './pets-view.component.html',
-  styleUrl: './pets-view.component.scss',
+  styleUrls: ['./pets-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PetsViewComponent implements OnInit {
-  @Input() pets!: PetsInterface;
-  ngOnInit() {
-    console.log('Pets in PetsViewComponent:', this.pets);
-  }
+export class PetsViewComponent {
+  @Input() pets: PetsInterface[];
+  displayedColumns: string[] = ['id', 'name', 'type', 'age'];
+  tableConfig = {
+    headers: [
+      {
+        title: 'Pet name',
+        key: 'name',
+      },
+      {
+        title: 'Pet age',
+        key: 'age',
+      },
+      {
+        title: 'Types',
+        key: 'type',
+      },
+    ],
+  };
 }

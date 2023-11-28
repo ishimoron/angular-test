@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { PetsInterface } from './pets-interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+
+
+@Injectable()
 export class PetsService {
-  petsMockData = [
+  private petsMockData = [
     { id: 1, name: 'Барсик', type: 'Кот', age: 3 },
     { id: 2, name: 'Рекс', type: 'Собака', age: 2 },
     { id: 3, name: 'Васька', type: 'Кот', age: 5 },
@@ -13,8 +14,42 @@ export class PetsService {
     { id: 5, name: 'Мурзик', type: 'Кот', age: 1 },
   ];
 
-  getAllPets(): PetsInterface[] {
-    return this.petsMockData;
+  private petsTableData = {
+    rows: [
+      {
+        cells: [
+          {
+            value: '',
+          },
+        ],
+      },
+    ],
+  };
+
+  tableConfig = {
+    headers: [
+      {
+        title: 'Pet name',
+        key: 'name',
+      },
+      {
+        title: 'Pet age',
+        key: 'age',
+      },
+    ],
+  };
+
+  // config = {
+  //   headers: [
+  //     {
+  //       header: string,
+  //       key: string,
+  //     },
+  //   ],
+  // };
+
+  getAllPets(): Observable<PetsInterface[]> {
+    return of(this.petsMockData);
   }
 
   constructor() {}

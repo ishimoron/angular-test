@@ -1,0 +1,30 @@
+button {
+  border: none;
+  padding: 10px 15px;
+  background: gainsboro;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+tr,
+td {
+  border: 1px solid #000;
+  padding: 1rem;
+}
+
+.container {
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  outline: none;
+
+  &:focus {
+    border-color: gray;
+  }
+}

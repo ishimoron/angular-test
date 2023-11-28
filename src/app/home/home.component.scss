@@ -1,0 +1,17 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  min-width: 65px;
+  margin: 10px;
+  padding: 10px 30px;
+  background: gray;
+  color: #fff;
+  text-decoration: none;
+}
